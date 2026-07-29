@@ -227,14 +227,26 @@ section {
 }
 
 .messengers a {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: var(--cream-200);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+}
+
+.msg-badge {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--brown-800);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.msg-badge:hover {
+  background: var(--gold);
+  color: var(--white);
 }
 
 .burger {
@@ -391,6 +403,27 @@ section {
 
 .ph-tall {
   aspect-ratio: 3 / 4;
+}
+
+/* ---------- Real image boxes (replace .ph when a photo is available) ---------- */
+
+.img-box {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
 }
 
 /* ---------- Product section ---------- */
@@ -929,9 +962,9 @@ section {
 
 .contacts-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .contact-list {
@@ -959,6 +992,10 @@ section {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--brown-800);
 }
 
 .contact-format {
