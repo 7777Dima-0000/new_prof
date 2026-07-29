@@ -519,7 +519,7 @@ section {
 .product-card {
   max-width: 460px;
   margin: 0 auto;
-  background: rgba(251, 248, 244, 0.82);
+  background: rgba(251, 248, 244, 0.62);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -581,7 +581,7 @@ section {
 }
 
 .advantages-content {
-  max-width: 620px;
+  max-width: 980px;
 }
 
 .section-head-left {
@@ -598,18 +598,19 @@ section {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
 }
 
 .advantage-list li {
   display: flex;
-  gap: 16px;
+  flex-direction: column;
+  gap: 8px;
   background: rgba(251, 248, 244, 0.82);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 16px 20px;
+  padding: 18px 18px;
   border-radius: 14px;
   box-shadow: 0 8px 24px -14px rgba(0, 0, 0, 0.35);
 }
@@ -1265,12 +1266,15 @@ section {
   }
 
   .hero .container,
-  .advantages-grid,
   .stage-cols,
   .apply-grid,
   .contacts-grid,
   .contacts-grid-map {
     grid-template-columns: 1fr;
+  }
+
+  .advantage-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .hero {
@@ -1337,7 +1341,8 @@ section {
   .stats-grid,
   .testimonials,
   .guarantees-grid,
-  .stage-media {
+  .stage-media,
+  .advantage-list {
     grid-template-columns: 1fr;
   }
 
