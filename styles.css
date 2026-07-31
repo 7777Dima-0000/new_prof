@@ -406,10 +406,11 @@ section {
 
 .hero {
   position: relative;
-  min-height: 700px;
+  aspect-ratio: 16 / 9;
+  min-height: 620px;
   display: flex;
   align-items: center;
-  padding: 120px 0 80px;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -1846,5 +1847,33 @@ section {
 @media (min-width: 981px) {
   .burger {
     display: none;
+  }
+}
+
+/* заголовок и подзаголовок первого экрана — по предложению в строке */
+.hero h1 span,
+.hero-sub-text span {
+  display: block;
+}
+
+.hero h1 span + span {
+  margin-top: 2px;
+}
+
+.hero-sub-text span + span {
+  margin-top: 8px;
+}
+
+/* на узких экранах вернуть заполнение кадром */
+@media (max-width: 980px) {
+  .hero {
+    aspect-ratio: auto;
+    min-height: 560px;
+    padding: 40px 0;
+  }
+
+  .hero-bg img {
+    object-fit: cover;
+    object-position: center 25%;
   }
 }
