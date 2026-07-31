@@ -60,3 +60,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Плавающие кнопки: наверх и чат
+document.addEventListener("DOMContentLoaded", () => {
+  const topBtn = document.getElementById("float-top");
+  const chatBtn = document.getElementById("float-chat");
+  const chatMenu = document.getElementById("float-chat-menu");
+
+  if (topBtn) {
+    const toggleTopBtn = () => {
+      topBtn.classList.toggle("visible", window.scrollY > 500);
+    };
+
+    toggleTopBtn();
+    window.addEventListener("scroll", toggleTopBtn);
+
+    topBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  if (chatBtn && chatMenu) {
+    chatBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      chatMenu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!chatMenu.contains(e.target)) {
+        chatMenu.classList.remove("open");
+      }
+    });
+  }
+});
