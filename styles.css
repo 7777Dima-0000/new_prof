@@ -2101,78 +2101,53 @@ section {
 /* ---------- Ведущая семинара ---------- */
 
 .speaker {
-  position: relative;
   background:
-    radial-gradient(circle at 15% 20%, rgba(199, 125, 212, 0.35), transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(109, 74, 217, 0.4), transparent 50%),
-    var(--plum-950);
-  overflow: hidden;
+    radial-gradient(circle at 8% 12%, rgba(211, 183, 245, 0.22), transparent 45%),
+    radial-gradient(circle at 92% 85%, rgba(249, 179, 221, 0.2), transparent 45%),
+    var(--white);
 }
 
 .speaker-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: stretch;
+}
+
+.speaker-photo,
+.speaker-card {
+  border-radius: 24px;
+  border: 1px solid rgba(199, 125, 212, 0.24);
+  overflow: hidden;
+  box-shadow: 0 22px 46px -26px rgba(109, 74, 217, 0.35);
+  min-height: 440px;
 }
 
 .speaker-photo {
-  position: relative;
-  border-radius: 26px;
-  overflow: hidden;
-  background: linear-gradient(160deg, #ffffff 0%, #f7ecf7 100%);
-  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.6);
-}
-
-.speaker-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 26px;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  pointer-events: none;
+  background: linear-gradient(160deg, #ffffff 0%, #faf0f9 100%);
 }
 
 .speaker-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
 .speaker-card {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 26px;
+  background: var(--mist-50);
   padding: 44px 42px;
-  color: rgba(253, 248, 252, 0.85);
-}
-
-.speaker-label {
-  display: inline-block;
-  font-size: 12.5px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  background: var(--holo-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: 14px;
-}
-
-.speaker-card h2 {
-  color: var(--mist-50);
-  font-size: clamp(28px, 3.2vw, 40px);
-  line-height: 1.15;
-  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .speaker-role {
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
-  color: rgba(253, 248, 252, 0.88);
+  color: var(--plum-950);
+  font-weight: 600;
   margin-bottom: 0;
 }
 
@@ -2185,55 +2160,26 @@ section {
   margin: 26px 0;
 }
 
-.speaker-sub {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: rgba(253, 248, 252, 0.6);
-  margin-bottom: 14px;
-}
-
-.speaker-congress {
-  list-style: none;
-  padding: 0;
+.speaker-congress-text {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-soft);
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.speaker-congress li {
-  position: relative;
-  padding-left: 24px;
-  font-size: 15.5px;
-  line-height: 1.5;
-  color: rgba(253, 248, 252, 0.82);
-}
-
-.speaker-congress li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--holo-gradient);
 }
 
 @media (max-width: 900px) {
   .speaker-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
   }
 
   .speaker-photo {
-    max-width: 380px;
-    margin: 0 auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
   }
 
   .speaker-card {
-    padding: 32px 26px;
+    min-height: 0;
+    padding: 30px 26px;
   }
 }
+
