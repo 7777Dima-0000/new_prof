@@ -1941,3 +1941,80 @@ section {
     gap: 20px;
   }
 }
+
+/* ---------- Для кого семинар ---------- */
+
+.audience {
+  background:
+    radial-gradient(circle at 12% 15%, rgba(249, 179, 221, 0.18), transparent 42%),
+    radial-gradient(circle at 88% 80%, rgba(169, 235, 224, 0.2), transparent 45%),
+    var(--mist-50);
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.audience-card {
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(199, 125, 212, 0.22);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.audience-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--violet);
+  box-shadow: 0 20px 40px -20px rgba(109, 74, 217, 0.4);
+}
+
+.audience-ic {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  background: var(--mist-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.audience-ic svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--violet);
+}
+
+.audience-card h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+  color: var(--plum-950);
+}
+
+.audience-card p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 1100px) {
+  .audience-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .audience-grid {
+    grid-template-columns: 1fr;
+  }
+}
