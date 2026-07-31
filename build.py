@@ -12,7 +12,7 @@ ROOT = pathlib.Path(__file__).parent
 SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
-CSS_VERSION = "14"
+CSS_VERSION = "15"
 JS_VERSION = "3"
 
 # страница -> (файл, заголовок вкладки, описание, надзаголовок, H1 страницы, секции)
@@ -24,7 +24,7 @@ PAGES = [
         "овала лица. Москва, 20 августа, очно или онлайн.",
         None,
         None,
-        ["hero", "problem", "proof", "apply"],
+        ["hero", "benefits", "problem", "proof", "apply"],
     ),
     (
         "product.html",
@@ -48,7 +48,7 @@ PAGES = [
         "pricing.html",
         "Стоимость участия | НИИ ИКЭМ",
         "Открытый прайс семинара по PDRN: офлайн 5 000 ₽ или оплата закупкой "
-        "препаратов, онлайн 2 990 ₽.",
+        "препаратов, онлайн 2 900 ₽.",
         "Тарифы",
         "Открытый прайс — без «уточните у менеджера»",
         ["pricing", "cta"],

@@ -1877,3 +1877,67 @@ section {
     object-position: center 25%;
   }
 }
+
+/* ---------- Полоса ключевых фактов ---------- */
+
+.benefits {
+  padding: 40px 0;
+  background: var(--white);
+  border-bottom: 1px solid rgba(199, 125, 212, 0.16);
+}
+
+.benefit-row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.benefit {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+
+.benefit b {
+  display: block;
+  color: var(--plum-950);
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.benefit-ic {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: var(--mist-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.benefit-ic svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--violet);
+}
+
+@media (max-width: 1100px) {
+  .benefit-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .benefit-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
