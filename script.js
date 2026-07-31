@@ -93,3 +93,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Анимация появления при скролле
+document.addEventListener("DOMContentLoaded", () => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // секции — блоками, карточки внутри — по очереди
+  const sections = document.querySelectorAll(
+    "section:not(.hero):not(.page-hero)"
+  );
+  const items = document.querySelectorAll(
+    ".advantage-list li, .stat-card, .testimonial-card, .guarantee-card, " +
+      ".price-option, .stage-card, .faq-item, .pf-row, .contact-list li"
+  );
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    return;
+  }
+
+  sections.forEach((el) => el.classList.add("reveal"));
+  items.forEach((el, i) => {
+    el.classList.add("reveal-item");
+    el.style.transitionDelay = `${Math.min((i % 6) * 70, 420)}ms`;
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+  );
+
+  document
+    .querySelectorAll(".reveal, .reveal-item")
+    .forEach((el) => observer.observe(el));
+
+  // страховка: если что-то осталось скрытым выше первого экрана
+  requestAnimationFrame(() => {
+    document.querySelectorAll(".reveal, .reveal-item").forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        el.classList.add("in-view");
+      }
+    });
+  });
+});

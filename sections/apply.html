@@ -1,0 +1,33 @@
+<!-- 9. Форма заявки -->
+<section class="apply" id="apply">
+  <div class="container">
+    <div class="apply-grid">
+      <div class="apply-side">
+        <span class="section-tag">Заявка</span>
+        <h2 id="slots-title">Осталось 3 места в ближайшей группе</h2>
+        <p>Оставьте контакты — ответим за 15 минут и пришлём программу курса в тот же день. Предоплата для брони места не нужна.</p>
+      </div>
+
+      <form class="apply-form" id="apply-form" novalidate>
+        <div class="form-field">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required />
+        </div>
+        <div class="form-field">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+        </div>
+        <div class="form-field">
+          <label>Есть медицинское образование?</label>
+          <div class="form-radio">
+            <label><input type="radio" name="medical" value="yes" checked /> Да</label>
+            <label><input type="radio" name="medical" value="no" /> Нет</label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+        <p class="form-note">Отвечаем за 15 минут, программу пришлём в тот же день</p>
+        <div class="form-success" id="form-success">Спасибо! Заявка принята — мы свяжемся с вами в течение 15 минут.</div>
+      </form>
+    </div>
+  </div>
+</section>
