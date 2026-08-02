@@ -12,8 +12,8 @@ ROOT = pathlib.Path(__file__).parent
 SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
-CSS_VERSION = "21"
-JS_VERSION = "3"
+CSS_VERSION = "24"
+JS_VERSION = "4"
 
 # страница -> (файл, заголовок вкладки, описание, надзаголовок, H1 страницы, секции)
 PAGES = [
@@ -24,15 +24,15 @@ PAGES = [
         "овала лица. Москва, 20 августа, очно или онлайн.",
         None,
         None,
-        ["hero", "benefits", "audience", "why", "speaker", "problem", "proof", "apply"],
+        ["hero", "benefits", "audience", "programme-short", "why", "speaker", "problem", "proof", "apply", "ask"],
     ),
     (
         "product.html",
-        "Что такое PDRN — семинар «PDRN-бабочка» | НИИ ИКЭМ",
-        "PDRN: механизм действия через рецептор A2A, отличие от гиалуроновой "
-        "кислоты и что вы получите на семинаре.",
-        "Продукт",
-        "Что такое PDRN и что вы получите на курсе",
+        "Программа семинара «PDRN-бабочка» | НИИ ИКЭМ",
+        "Полная программа семинара: 6 клинических зон с протоколами и "
+        "препаратами, лифтинг и регенерация нижней трети лица.",
+        None,
+        None,
         ["product", "cta"],
     ),
     (
@@ -93,7 +93,7 @@ PAGES = [
 
 NAV = [
     ("index.html", "Главная"),
-    ("product.html", "Продукт"),
+    ("product.html", "Программа"),
     ("advantages.html", "Преимущества"),
     ("pricing.html", "Тарифы"),
     ("stages.html", "Этапы"),

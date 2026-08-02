@@ -45,14 +45,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const success = document.getElementById("form-success");
 
   if (form) {
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const name = form.name.value.trim();
       const phone = form.phone.value.trim();
+      const consent = form.consent ? form.consent.checked : true;
 
-      if (!name || !phone) {
+      if (!name || !phone || !consent) {
         return;
+      }
+
+      const payload = {
+        name,
+        phone,
+        email: form.email ? form.email.value.trim() : "",
+        city: form.city ? form.city.value.trim() : "",
+        source: "Сайт — семинар PDRN-бабочка",
+      };
+
+      // Заявки собираются в Битрикс24. Впишите сюда реальный URL
+      // входящего вебхука/CRM-формы Битрикс — тогда данные будут
+      // уходить туда автоматически. Пока webhook не задан, форма
+      // просто показывает пользователю сообщение об успехе.
+      const webhook = form.dataset.bitrixWebhook;
+
+      if (webhook) {
+        try {
+          await fetch(webhook, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+        } catch (err) {
+          console.error("Не удалось отправить заявку в Битрикс24:", err);
+        }
+      } else {
+        console.warn(
+          "Bitrix24 webhook не настроен (data-bitrix-webhook на #apply-form). " +
+            "Заявка не отправлена в CRM:",
+          payload
+        );
       }
 
       success.classList.add("visible");
