@@ -937,6 +937,10 @@ section {
   flex-direction: column;
 }
 
+.price-option .price-note {
+  flex-grow: 1;
+}
+
 .price-option .price-amount {
   font-size: clamp(32px, 4vw, 44px);
   margin-top: 4px;
@@ -1009,24 +1013,23 @@ section {
 .price-countdown {
   display: flex;
   justify-content: center;
-  gap: 14px;
-  margin-top: 20px;
+  gap: 20px;
 }
 
 .countdown-unit {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  min-width: 62px;
-  padding: 12px 8px;
-  border-radius: 14px;
+  gap: 6px;
+  min-width: 92px;
+  padding: 20px 12px;
+  border-radius: 18px;
   background: var(--plum-950);
 }
 
 .countdown-num {
   font-family: "Manrope", "Segoe UI", Arial, sans-serif;
-  font-size: 26px;
+  font-size: 44px;
   font-weight: 800;
   color: var(--mist-50);
   line-height: 1;
@@ -1034,7 +1037,7 @@ section {
 }
 
 .countdown-label {
-  font-size: 11px;
+  font-size: 13px;
   color: rgba(253, 248, 252, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -1042,16 +1045,16 @@ section {
 
 @media (max-width: 480px) {
   .price-countdown {
-    gap: 8px;
+    gap: 10px;
   }
 
   .countdown-unit {
-    min-width: 50px;
-    padding: 10px 6px;
+    min-width: 66px;
+    padding: 14px 6px;
   }
 
   .countdown-num {
-    font-size: 20px;
+    font-size: 30px;
   }
 }
 
