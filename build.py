@@ -12,7 +12,7 @@ ROOT = pathlib.Path(__file__).parent
 SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
-CSS_VERSION = "26"
+CSS_VERSION = "27"
 JS_VERSION = "5"
 
 # страница -> (файл, заголовок вкладки, описание, надзаголовок, H1 страницы, секции)
@@ -24,7 +24,7 @@ PAGES = [
         "овала лица. Москва, 20 августа, очно или онлайн.",
         None,
         None,
-        ["hero", "benefits", "audience", "speaker", "programme-short", "why", "pricing-short", "apply", "ask"],
+        ["hero", "benefits", "audience", "speaker", "programme-short", "why", "pricing-short", "contacts", "faq", "apply", "ask"],
     ),
     (
         "product.html",
