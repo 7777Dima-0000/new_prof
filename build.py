@@ -12,7 +12,7 @@ ROOT = pathlib.Path(__file__).parent
 SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
-CSS_VERSION = "28"
+CSS_VERSION = "29"
 JS_VERSION = "5"
 
 # страница -> (файл, заголовок вкладки, описание, надзаголовок, H1 страницы, секции)
@@ -24,7 +24,7 @@ PAGES = [
         "овала лица. Москва, 20 августа, очно или онлайн.",
         None,
         None,
-        ["hero", "benefits", "audience", "speaker", "programme-short", "why", "pricing-short", "advantages", "contacts", "faq", "apply", "ask"],
+        ["hero", "benefits", "audience", "speaker", "programme-short", "why", "pricing-short", "advantages", "contacts-short", "faq", "apply", "ask"],
     ),
     (
         "product.html",
@@ -36,15 +36,6 @@ PAGES = [
         ["product", "why", "learn", "cta"],
     ),
     (
-        "advantages.html",
-        "Преимущества семинара | НИИ ИКЭМ",
-        "Кому подойдёт семинар по PDRN, чему вы научитесь, что сможете делать "
-        "после курса и почему стоит пойти именно на этот семинар.",
-        "Преимущества",
-        "Кому подойдёт, чему вы научитесь и почему стоит пойти",
-        ["advantages", "cta"],
-    ),
-    (
         "pricing.html",
         "Стоимость участия | НИИ ИКЭМ",
         "Открытый прайс семинара по PDRN: офлайн 5 000 ₽ или оплата закупкой "
@@ -52,24 +43,6 @@ PAGES = [
         "Тарифы",
         "Открытый прайс — без «уточните у менеджера»",
         ["pricing", "cta"],
-    ),
-    (
-        "stages.html",
-        "Программа семинара | НИИ ИКЭМ",
-        "Как проходит однодневный семинар по PDRN: теория и разбор препаратов, "
-        "практика на моделях.",
-        "Этапы",
-        "Как проходит обучение — 1 день",
-        ["stages", "cta"],
-    ),
-    (
-        "guarantees.html",
-        "Гарантии | НИИ ИКЭМ",
-        "Доступ к записи навсегда и месяц сопровождения куратора — гарантии в "
-        "договоре, а не на словах.",
-        "Гарантии",
-        "Гарантии в договоре, а не на словах",
-        ["guarantees", "cta"],
     ),
     (
         "faq.html",
@@ -94,10 +67,7 @@ PAGES = [
 NAV = [
     ("index.html", "Главная"),
     ("product.html", "Программа"),
-    ("advantages.html", "Преимущества"),
     ("pricing.html", "Тарифы"),
-    ("stages.html", "Этапы"),
-    ("guarantees.html", "Гарантии"),
     ("faq.html", "Частые вопросы"),
     ("contacts.html", "Контакты"),
 ]
