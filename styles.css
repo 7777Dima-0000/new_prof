@@ -1010,6 +1010,16 @@ section {
   color: var(--plum-950);
 }
 
+.countdown-caption {
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--holo);
+  margin: 0 0 14px;
+}
+
 .price-countdown {
   display: flex;
   justify-content: center;
@@ -2198,6 +2208,56 @@ section {
 
 @media (max-width: 860px) {
   .learn-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Преимущества (сводный блок) ---------- */
+
+.advantages-combo {
+  background: var(--white);
+}
+
+.combo-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.combo-group h3 {
+  font-size: 19px;
+  margin-bottom: 16px;
+  color: var(--plum-950);
+}
+
+.adv-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.adv-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.adv-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--holo);
+  font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  .combo-groups {
     grid-template-columns: 1fr;
   }
 }
