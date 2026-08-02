@@ -942,6 +942,10 @@ section {
   margin-top: 4px;
 }
 
+.price-option .btn-block {
+  margin-top: 20px;
+}
+
 .price-option-tag {
   font-size: 12.5px;
   font-weight: 700;
@@ -2090,6 +2094,58 @@ section {
 
   .why-card:last-child:nth-child(odd) {
     grid-column: auto;
+  }
+}
+
+/* ---------- Чему вы научитесь ---------- */
+
+.learn {
+  background: var(--mist-50);
+}
+
+.learn-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.learn-list li {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid var(--mist-200);
+}
+
+.learn-ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--holo-gradient);
+  color: var(--plum-950);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.learn-list p {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+  .learn-list {
+    grid-template-columns: 1fr;
   }
 }
 
