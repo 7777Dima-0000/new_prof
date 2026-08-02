@@ -24,7 +24,7 @@ PAGES = [
         "овала лица. Москва, 20 августа, очно или онлайн.",
         None,
         None,
-        ["hero", "benefits", "audience", "programme-short", "why", "speaker", "problem", "proof", "apply", "ask"],
+        ["hero", "benefits", "audience", "speaker", "programme-short", "why", "problem", "proof", "apply", "ask"],
     ),
     (
         "product.html",
