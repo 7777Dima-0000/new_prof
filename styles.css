@@ -1006,6 +1006,55 @@ section {
   color: var(--plum-950);
 }
 
+.price-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 62px;
+  padding: 12px 8px;
+  border-radius: 14px;
+  background: var(--plum-950);
+}
+
+.countdown-num {
+  font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--mist-50);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+  font-size: 11px;
+  color: rgba(253, 248, 252, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 480px) {
+  .price-countdown {
+    gap: 8px;
+  }
+
+  .countdown-unit {
+    min-width: 50px;
+    padding: 10px 6px;
+  }
+
+  .countdown-num {
+    font-size: 20px;
+  }
+}
+
 /* ---------- Stages ---------- */
 
 .stages {

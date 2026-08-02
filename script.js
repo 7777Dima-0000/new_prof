@@ -127,6 +127,46 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Обратный отсчёт до семинара
+document.addEventListener("DOMContentLoaded", () => {
+  const countdown = document.getElementById("price-countdown");
+  if (!countdown) return;
+
+  const target = new Date(countdown.dataset.target).getTime();
+  const daysEl = document.getElementById("cd-days");
+  const hoursEl = document.getElementById("cd-hours");
+  const minsEl = document.getElementById("cd-mins");
+  const secsEl = document.getElementById("cd-secs");
+
+  const pad = (n) => String(n).padStart(2, "0");
+
+  const tick = () => {
+    const diff = target - Date.now();
+
+    if (diff <= 0) {
+      daysEl.textContent = "00";
+      hoursEl.textContent = "00";
+      minsEl.textContent = "00";
+      secsEl.textContent = "00";
+      clearInterval(timer);
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+    const secs = Math.floor((diff / 1000) % 60);
+
+    daysEl.textContent = pad(days);
+    hoursEl.textContent = pad(hours);
+    minsEl.textContent = pad(mins);
+    secsEl.textContent = pad(secs);
+  };
+
+  tick();
+  const timer = setInterval(tick, 1000);
+});
+
 // Анимация появления при скролле
 document.addEventListener("DOMContentLoaded", () => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

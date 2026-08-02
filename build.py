@@ -12,8 +12,8 @@ ROOT = pathlib.Path(__file__).parent
 SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
-CSS_VERSION = "25"
-JS_VERSION = "4"
+CSS_VERSION = "26"
+JS_VERSION = "5"
 
 # страница -> (файл, заголовок вкладки, описание, надзаголовок, H1 страницы, секции)
 PAGES = [
