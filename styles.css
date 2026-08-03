@@ -1618,6 +1618,86 @@ section {
   margin-top: 6px;
 }
 
+/* ---------- Модальное окно заявки ---------- */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(42, 27, 61, 0.55);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--mist-50);
+  border-radius: 22px;
+  padding: 40px 36px;
+  box-shadow: 0 40px 80px -30px rgba(42, 27, 61, 0.5);
+  transform: translateY(16px);
+  transition: transform 0.25s ease;
+}
+
+.modal-overlay.open .modal-box {
+  transform: translateY(0);
+}
+
+.modal-box h2 {
+  font-size: clamp(22px, 3vw, 28px);
+  margin-top: 6px;
+}
+
+.modal-box > p {
+  color: var(--ink-soft);
+  font-size: 15.5px;
+  margin-bottom: 24px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--mist-200);
+  color: var(--plum-800);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal-close:hover {
+  background: var(--plum-950);
+  color: var(--mist-50);
+}
+
+@media (max-width: 560px) {
+  .modal-box {
+    padding: 32px 22px;
+  }
+}
+
 /* ---------- Floating actions ---------- */
 
 .floating-actions {

@@ -12,8 +12,8 @@ ROOT = pathlib.Path(__file__).parent
 SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
-CSS_VERSION = "29"
-JS_VERSION = "5"
+CSS_VERSION = "30"
+JS_VERSION = "6"
 
 # страница -> (файл, заголовок вкладки, описание, надзаголовок, H1 страницы, секции)
 PAGES = [
@@ -33,7 +33,7 @@ PAGES = [
         "препаратами, лифтинг и регенерация нижней трети лица.",
         None,
         None,
-        ["product", "why", "learn", "cta"],
+        ["product", "why", "learn", "cta", "contacts-short"],
     ),
     (
         "pricing.html",
@@ -42,7 +42,7 @@ PAGES = [
         "препаратов, онлайн 2 900 ₽.",
         "Тарифы",
         "Открытый прайс — без «уточните у менеджера»",
-        ["pricing", "cta"],
+        ["pricing-short", "apply", "ask"],
     ),
     (
         "faq.html",
@@ -60,7 +60,7 @@ PAGES = [
         "ул. Красина, д. 2, стр. 1.",
         "Контакты",
         "Свяжитесь с нами",
-        ["contacts"],
+        ["contacts", "apply"],
     ),
 ]
 
@@ -104,6 +104,7 @@ def main():
     header = read(PARTIALS / "header.html")
     footer = read(PARTIALS / "footer.html")
     floating = read(PARTIALS / "floating.html")
+    modal_apply = read(PARTIALS / "modal-apply.html")
 
     for filename, title, description, tag, heading, section_names in PAGES:
         body = header.replace("{{NAV}}", build_nav(filename))
@@ -114,7 +115,7 @@ def main():
         for name in section_names:
             body += read(SECTIONS / f"{name}.html")
 
-        body += footer + floating
+        body += footer + floating + modal_apply
 
         html = f"""<!doctype html>
 <html lang="ru">

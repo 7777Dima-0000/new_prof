@@ -127,6 +127,66 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Модальное окно заявки
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById("modal-overlay");
+  if (!overlay) return;
+
+  const closeBtn = document.getElementById("modal-close");
+  const modalForm = document.getElementById("modal-apply-form");
+  const modalSuccess = document.getElementById("modal-form-success");
+
+  const openModal = () => {
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll(".js-open-modal").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
+
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+
+  if (modalForm) {
+    modalForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = modalForm.name.value.trim();
+      const phone = modalForm.phone.value.trim();
+      const consent = modalForm.consent ? modalForm.consent.checked : true;
+
+      if (!name || !phone || !consent) {
+        return;
+      }
+
+      modalSuccess.classList.add("visible");
+      modalForm.reset();
+    });
+  }
+});
+
 // Обратный отсчёт до семинара
 document.addEventListener("DOMContentLoaded", () => {
   const countdown = document.getElementById("price-countdown");

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=29" />
+<link rel="stylesheet" href="styles.css?v=30" />
 </head>
 <body>
 <!-- 1. Шапка -->
@@ -58,13 +58,13 @@
 <section class="programme-full" id="programme-full">
   <div class="container">
     <div class="prog-intro">
-      <div class="prog-intro-photo">
-        <img src="3a7b48f8-flipped.jpg" alt="Синергия регенерации и лифтинга — визуализация PDRN-бабочки" />
-      </div>
       <div class="prog-intro-text">
         <span class="section-tag">Тема семинара</span>
         <h2>Лифтинг и регенерация. Синергия в коррекции нижней трети овала лица. PDRN-бабочка</h2>
         <p>Инновационные решения с пролонгированным результатом.</p>
+      </div>
+      <div class="prog-intro-photo">
+        <img src="3a7b48f8-flipped.jpg" alt="Синергия регенерации и лифтинга — визуализация PDRN-бабочки" />
       </div>
     </div>
 
@@ -223,6 +223,32 @@
     </div>
   </div>
 </section>
+<!-- Контакты (кратко, главная) -->
+<section class="contacts" id="contacts">
+  <div class="container">
+    <div class="contacts-grid contacts-grid-map">
+      <div>
+        <span class="section-tag">Контакты</span>
+        <h2>Свяжитесь с нами</h2>
+
+        <ul class="contact-list">
+          <li><span class="ic">АД</span> Место проведения:<br />Москва, ул. Красина, д. 2, стр. 1</li>
+          <li><span class="ic">PH</span> <a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+          <li><span class="ic">TG</span> <a href="https://t.me/mesoproffru">Telegram-канал @mesoproffru</a></li>
+          <li><span class="ic">VK</span> <a href="https://vk.ru/mesoproff">VK — vk.ru/mesoproff</a></li>
+        </ul>
+      </div>
+
+      <div class="map-box">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=37.5800%2C55.7670%2C37.5960%2C55.7750&layer=mapnik&marker=55.7710%2C37.5880"
+          title="Карта — Москва, ул. Красина, д. 2, стр. 1"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- 13. Подвал -->
 <footer class="footer">
   <div class="container">
@@ -307,7 +333,44 @@
     </button>
   </div>
 </div>
+<!-- Модальное окно заявки -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Закрыть">✕</button>
+    <span class="section-tag">Заявка</span>
+    <h2>Заполните анкету — забронируем за вами место</h2>
+    <p>Ответим за 15 минут и зафиксируем место в группе. Вся программа семинара уже на сайте — в разделе «Программа».</p>
 
-<script src="script.js?v=5"></script>
+    <form class="apply-form" id="modal-apply-form" data-bitrix-webhook="" novalidate>
+      <div class="form-field">
+        <label for="modal-name">Имя</label>
+        <input type="text" id="modal-name" name="name" placeholder="Как к вам обращаться" required />
+      </div>
+      <div class="form-field">
+        <label for="modal-email">E-mail</label>
+        <input type="email" id="modal-email" name="email" placeholder="you@mail.ru" />
+      </div>
+      <div class="form-field">
+        <label for="modal-phone">Телефон</label>
+        <input type="tel" id="modal-phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+      </div>
+      <div class="form-field">
+        <label for="modal-city">Город</label>
+        <input type="text" id="modal-city" name="city" placeholder="Москва" />
+      </div>
+
+      <label class="form-consent">
+        <input type="checkbox" id="modal-consent" name="consent" required />
+        <span>Нажимая кнопку, я даю согласие на обработку персональных данных в соответствии с <a href="#">Согласием</a> и <a href="#">Политикой конфиденциальности</a> (ФЗ №152-ФЗ).</span>
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+      <p class="form-note">Отвечаем за 15 минут и бронируем место в группе</p>
+      <div class="form-success" id="modal-form-success">Спасибо! Заявка принята — мы свяжемся с вами в течение 15 минут.</div>
+    </form>
+  </div>
+</div>
+
+<script src="script.js?v=6"></script>
 </body>
 </html>

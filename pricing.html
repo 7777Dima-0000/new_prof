@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=29" />
+<link rel="stylesheet" href="styles.css?v=30" />
 </head>
 <body>
 <!-- 1. Шапка -->
@@ -61,7 +61,7 @@
     <h1>Открытый прайс — без «уточните у менеджера»</h1>
   </div>
 </section>
-<!-- 7. Цены/тарифы -->
+<!-- Тарифы (кратко, главная) -->
 <section class="pricing" id="pricing">
   <div class="container">
 
@@ -71,54 +71,88 @@
           <span class="price-option-tag">Офлайн, Москва</span>
           <div class="price-amount">5 000 ₽</div>
           <div class="price-note">за место · либо оплата закупкой препаратов в Мезопроф</div>
-          <ul class="price-option-list">
-            <li>Теория + практика на моделях очно</li>
-            <li>Модель для отработки предоставляем мы</li>
-            <li>Удостоверение с занесением в ФРДО</li>
-          </ul>
-          <a href="index.html#apply" class="btn btn-primary btn-block">Забронировать офлайн</a>
+          <a href="#" class="btn btn-primary btn-block js-open-modal">Забронировать офлайн</a>
         </div>
         <div class="price-option">
           <span class="price-option-tag">Онлайн</span>
           <div class="price-amount">2 900 ₽</div>
           <div class="price-note">за место · доступ из любого города</div>
-          <ul class="price-option-list">
-            <li>Полный курс теории в записи</li>
-            <li>Доступ к записи навсегда</li>
-            <li>Месяц сопровождения в чате</li>
-          </ul>
-          <a href="index.html#apply" class="btn btn-outline btn-block">Записаться онлайн</a>
+          <a href="#" class="btn btn-outline btn-block js-open-modal">Записаться онлайн</a>
         </div>
       </div>
 
-      <table class="price-table">
-        <tr><td>Теория</td><td class="price-yes">✅ Есть</td></tr>
-        <tr><td>Практика на модели института (офлайн)</td><td class="price-yes">✅ Есть</td></tr>
-        <tr><td>Модель для отработки</td><td class="price-yes">✅ предоставляем мы</td></tr>
-        <tr><td>Разбор вашего сложного случая</td><td class="price-yes">✅ Есть</td></tr>
-        <tr><td>Удостоверение с занесением в ФРДО</td><td class="price-yes">✅ Есть</td></tr>
-        <tr><td>Доступ к записи навсегда</td><td class="price-yes">✅ Есть</td></tr>
-        <tr><td>Месяц сопровождения в чате</td><td class="price-yes">✅ Есть</td></tr>
-        <tr><td>Скрытая закупка препаратов как условие участия</td><td class="price-no">❌ нет</td></tr>
-      </table>
-
-      <div class="price-stream">
-        Ближайшая дата потока: <b>[дата]</b> — при записи в это окно доступ к записи и месяц сопровождения идут в подарок. Мест в группе: 8, осталось <b id="slots-left">3</b>.
+      <p class="countdown-caption">До начала семинара</p>
+      <div class="price-countdown" id="price-countdown" data-target="2026-08-20T10:30:00+03:00" aria-live="polite">
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">дней</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">часов</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-label">минут</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-label">секунд</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
-<!-- CTA -->
-<section class="cta-band reveal">
+<!-- 9. Форма заявки -->
+<section class="apply" id="apply">
   <div class="container">
-    <div class="cta-inner">
-      <div>
-        <h2>Осталось 3 места в ближайшей группе</h2>
-        <p>Москва, 20 августа — очно или онлайн. Ответим на заявку за 15 минут и пришлём программу в тот же день.</p>
+    <div class="apply-grid">
+      <div class="apply-side">
+        <span class="section-tag">Заявка</span>
+        <h2 id="slots-title">Заполните анкету — забронируем за вами место</h2>
+        <p>Ответим за 15 минут и зафиксируем место в группе. Вся программа семинара уже на сайте — в разделе «Программа».</p>
       </div>
-      <div class="cta-buttons">
-        <a href="index.html#apply" class="btn btn-primary">Записаться на курс</a>
-        <a href="contacts.html" class="btn btn-outline">Связаться с нами</a>
+
+      <form class="apply-form" id="apply-form" data-bitrix-webhook="" novalidate>
+        <div class="form-field">
+          <label for="name">Имя</label>
+          <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required />
+        </div>
+        <div class="form-field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="you@mail.ru" />
+        </div>
+        <div class="form-field">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+        </div>
+        <div class="form-field">
+          <label for="city">Город</label>
+          <input type="text" id="city" name="city" placeholder="Москва" />
+        </div>
+
+        <label class="form-consent">
+          <input type="checkbox" id="consent" name="consent" required />
+          <span>Нажимая кнопку, я даю согласие на обработку персональных данных в соответствии с <a href="#">Согласием</a> и <a href="#">Политикой конфиденциальности</a> (ФЗ №152-ФЗ).</span>
+        </label>
+
+        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+        <p class="form-note">Отвечаем за 15 минут и бронируем место в группе</p>
+        <div class="form-success" id="form-success">Спасибо! Заявка принята — мы свяжемся с вами в течение 15 минут.</div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- Остались вопросы -->
+<section class="ask-band">
+  <div class="container">
+    <div class="ask-inner">
+      <h2>Остались вопросы?</h2>
+      <p>Напишите менеджеру и получите исчерпывающую консультацию</p>
+      <div class="ask-buttons">
+        <a href="https://wa.me/79647884854" class="btn btn-contacts">Написать в WhatsApp</a>
+        <a href="https://t.me/MeSOproff_Main" class="btn btn-violet-outline">Написать в Telegram</a>
+        <a href="https://clck.ru/3R37hs" class="btn btn-violet-outline">Написать в МАКС</a>
       </div>
     </div>
   </div>
@@ -207,7 +241,44 @@
     </button>
   </div>
 </div>
+<!-- Модальное окно заявки -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Закрыть">✕</button>
+    <span class="section-tag">Заявка</span>
+    <h2>Заполните анкету — забронируем за вами место</h2>
+    <p>Ответим за 15 минут и зафиксируем место в группе. Вся программа семинара уже на сайте — в разделе «Программа».</p>
 
-<script src="script.js?v=5"></script>
+    <form class="apply-form" id="modal-apply-form" data-bitrix-webhook="" novalidate>
+      <div class="form-field">
+        <label for="modal-name">Имя</label>
+        <input type="text" id="modal-name" name="name" placeholder="Как к вам обращаться" required />
+      </div>
+      <div class="form-field">
+        <label for="modal-email">E-mail</label>
+        <input type="email" id="modal-email" name="email" placeholder="you@mail.ru" />
+      </div>
+      <div class="form-field">
+        <label for="modal-phone">Телефон</label>
+        <input type="tel" id="modal-phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+      </div>
+      <div class="form-field">
+        <label for="modal-city">Город</label>
+        <input type="text" id="modal-city" name="city" placeholder="Москва" />
+      </div>
+
+      <label class="form-consent">
+        <input type="checkbox" id="modal-consent" name="consent" required />
+        <span>Нажимая кнопку, я даю согласие на обработку персональных данных в соответствии с <a href="#">Согласием</a> и <a href="#">Политикой конфиденциальности</a> (ФЗ №152-ФЗ).</span>
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+      <p class="form-note">Отвечаем за 15 минут и бронируем место в группе</p>
+      <div class="form-success" id="modal-form-success">Спасибо! Заявка принята — мы свяжемся с вами в течение 15 минут.</div>
+    </form>
+  </div>
+</div>
+
+<script src="script.js?v=6"></script>
 </body>
 </html>

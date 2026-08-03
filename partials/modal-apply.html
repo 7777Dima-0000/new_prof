@@ -1,0 +1,37 @@
+<!-- Модальное окно заявки -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Закрыть">✕</button>
+    <span class="section-tag">Заявка</span>
+    <h2>Заполните анкету — забронируем за вами место</h2>
+    <p>Ответим за 15 минут и зафиксируем место в группе. Вся программа семинара уже на сайте — в разделе «Программа».</p>
+
+    <form class="apply-form" id="modal-apply-form" data-bitrix-webhook="" novalidate>
+      <div class="form-field">
+        <label for="modal-name">Имя</label>
+        <input type="text" id="modal-name" name="name" placeholder="Как к вам обращаться" required />
+      </div>
+      <div class="form-field">
+        <label for="modal-email">E-mail</label>
+        <input type="email" id="modal-email" name="email" placeholder="you@mail.ru" />
+      </div>
+      <div class="form-field">
+        <label for="modal-phone">Телефон</label>
+        <input type="tel" id="modal-phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+      </div>
+      <div class="form-field">
+        <label for="modal-city">Город</label>
+        <input type="text" id="modal-city" name="city" placeholder="Москва" />
+      </div>
+
+      <label class="form-consent">
+        <input type="checkbox" id="modal-consent" name="consent" required />
+        <span>Нажимая кнопку, я даю согласие на обработку персональных данных в соответствии с <a href="#">Согласием</a> и <a href="#">Политикой конфиденциальности</a> (ФЗ №152-ФЗ).</span>
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+      <p class="form-note">Отвечаем за 15 минут и бронируем место в группе</p>
+      <div class="form-success" id="modal-form-success">Спасибо! Заявка принята — мы свяжемся с вами в течение 15 минут.</div>
+    </form>
+  </div>
+</div>
