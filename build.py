@@ -12,8 +12,11 @@ ROOT = pathlib.Path(__file__).parent
 SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
-CSS_VERSION = "30"
+CSS_VERSION = "32"
 JS_VERSION = "6"
+
+SITE_URL = "https://mesoproff-pdrn.ru"
+OG_IMAGE = f"{SITE_URL}/3a7b48f8-df55-4b96-90d7-b7947bf9d245.jpg"
 
 # страница -> (файл, заголовок вкладки, описание, надзаголовок, H1 страницы, секции)
 PAGES = [
@@ -61,6 +64,24 @@ PAGES = [
         "Контакты",
         "Свяжитесь с нами",
         ["contacts", "apply"],
+    ),
+    (
+        "privacy-policy.html",
+        "Политика конфиденциальности | НИИ ИКЭМ",
+        "Политика конфиденциальности НИИ ИКЭМ: порядок хранения, обработки и "
+        "защиты персональных данных пользователей сайта.",
+        None,
+        None,
+        ["privacy-policy"],
+    ),
+    (
+        "consent.html",
+        "Согласие на обработку персональных данных | НИИ ИКЭМ",
+        "Согласие на обработку персональных данных и политика cookie сайта "
+        "НИИ ИКЭМ.",
+        None,
+        None,
+        ["consent"],
     ),
 ]
 
@@ -124,6 +145,19 @@ def main():
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{title}</title>
 <meta name="description" content="{description}" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="НИИ ИКЭМ" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="{title}" />
+<meta property="og:description" content="{description}" />
+<meta property="og:url" content="{SITE_URL}/{filename}" />
+<meta property="og:image" content="{OG_IMAGE}" />
+<meta property="og:image:width" content="800" />
+<meta property="og:image:height" content="450" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{title}" />
+<meta name="twitter:description" content="{description}" />
+<meta name="twitter:image" content="{OG_IMAGE}" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />

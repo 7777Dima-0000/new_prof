@@ -73,7 +73,7 @@ img {
 }
 
 section {
-  padding: 88px 0;
+  padding: 60px 0;
 }
 
 .section-tag {
@@ -1561,7 +1561,7 @@ section {
 
 @media (max-width: 640px) {
   section {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 
   .stats-grid,
@@ -1643,12 +1643,12 @@ section {
 .modal-box {
   position: relative;
   width: 100%;
-  max-width: 480px;
-  max-height: 90vh;
+  max-width: 460px;
+  max-height: 94vh;
   overflow-y: auto;
   background: var(--mist-50);
   border-radius: 22px;
-  padding: 40px 36px;
+  padding: 28px 30px;
   box-shadow: 0 40px 80px -30px rgba(42, 27, 61, 0.5);
   transform: translateY(16px);
   transition: transform 0.25s ease;
@@ -1658,15 +1658,51 @@ section {
   transform: translateY(0);
 }
 
+.modal-box .section-tag {
+  margin-bottom: 4px;
+}
+
 .modal-box h2 {
-  font-size: clamp(22px, 3vw, 28px);
-  margin-top: 6px;
+  font-size: clamp(19px, 2.4vw, 23px);
+  margin: 0 0 6px;
 }
 
 .modal-box > p {
   color: var(--ink-soft);
-  font-size: 15.5px;
-  margin-bottom: 24px;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0 0 16px;
+}
+
+.modal-box .form-field {
+  margin-bottom: 12px;
+}
+
+.modal-box .form-field label {
+  font-size: 12.5px;
+  margin-bottom: 4px;
+}
+
+.modal-box .form-field input {
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.modal-box .form-consent {
+  margin: 2px 0 14px;
+}
+
+.modal-box .form-consent span {
+  font-size: 11.5px;
+}
+
+.modal-box .btn-block {
+  padding: 13px 30px;
+}
+
+.modal-box .form-note {
+  margin: 10px 0 0;
+  font-size: 12.5px;
 }
 
 .modal-close {
@@ -2521,18 +2557,20 @@ section {
 }
 
 .prog-intro {
-  display: grid;
-  grid-template-columns: 1fr;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 420px;
   margin-bottom: 48px;
-  background: var(--white);
   border: 1px solid rgba(199, 125, 212, 0.22);
   border-radius: 26px;
   overflow: hidden;
 }
 
 .prog-intro-photo {
-  width: 100%;
-  aspect-ratio: 21 / 9;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   background: linear-gradient(160deg, #ffffff 0%, #faf0f9 100%);
 }
 
@@ -2543,8 +2581,23 @@ section {
   object-position: center 30%;
 }
 
+.prog-intro-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(253, 246, 251, 0.97) 0%,
+    rgba(253, 246, 251, 0.9) 35%,
+    rgba(253, 246, 251, 0.5) 60%,
+    rgba(253, 246, 251, 0) 85%
+  );
+}
+
 .prog-intro-text {
+  position: relative;
+  z-index: 1;
   padding: 40px 44px;
+  max-width: 560px;
 }
 
 .prog-intro-text h2 {
@@ -2584,12 +2637,30 @@ section {
 }
 
 @media (max-width: 860px) {
+  .prog-intro {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+  }
+
   .prog-intro-photo {
+    position: relative;
     aspect-ratio: 4 / 3;
   }
 
+  .prog-intro-scrim {
+    background: linear-gradient(
+      180deg,
+      rgba(253, 246, 251, 0) 55%,
+      rgba(253, 246, 251, 0.97) 100%
+    );
+  }
+
   .prog-intro-text {
-    padding: 28px 26px;
+    max-width: none;
+    padding: 24px 26px 28px;
+    margin-top: -1px;
+    background: var(--mist-50);
   }
 }
 
@@ -2620,6 +2691,97 @@ section {
 .form-consent a {
   color: var(--violet);
   text-decoration: underline;
+}
+
+/* ---------- Юридические страницы ---------- */
+
+.legal {
+  background: var(--white);
+}
+
+.legal-doc {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.legal-doc h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin: 40px 0 16px;
+}
+
+.legal-doc h2:first-child {
+  margin-top: 0;
+}
+
+.legal-doc h3 {
+  font-size: 18px;
+  margin: 28px 0 10px;
+  color: var(--plum-950);
+}
+
+.legal-doc p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+}
+
+.legal-doc ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.legal-doc li {
+  margin-bottom: 6px;
+}
+
+.legal-doc a {
+  color: var(--violet);
+  text-decoration: underline;
+}
+
+.legal-operator {
+  background: var(--mist-100);
+  border-radius: 14px;
+  padding: 20px 24px;
+  margin-top: 20px;
+}
+
+.legal-operator p {
+  margin-bottom: 6px;
+}
+
+.legal-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 14px;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+  font-size: 13.5px;
+}
+
+.legal-table th,
+.legal-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--mist-200);
+  vertical-align: top;
+}
+
+.legal-table th {
+  color: var(--plum-950);
+  font-weight: 700;
+  background: var(--mist-100);
+}
+
+.legal-table td {
+  color: var(--ink-soft);
 }
 
 /* ---------- Остались вопросы (главная) ---------- */
