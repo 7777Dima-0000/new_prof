@@ -12,7 +12,7 @@ ROOT = pathlib.Path(__file__).parent
 SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
-CSS_VERSION = "32"
+CSS_VERSION = "33"
 JS_VERSION = "6"
 
 SITE_URL = "https://mesoproff-pdrn.ru"

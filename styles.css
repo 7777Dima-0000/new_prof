@@ -1659,23 +1659,29 @@ section {
 }
 
 .modal-box .section-tag {
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .modal-box h2 {
-  font-size: clamp(19px, 2.4vw, 23px);
-  margin: 0 0 6px;
+  font-size: clamp(18px, 2.2vw, 21px);
+  margin: 0 0 4px;
 }
 
 .modal-box > p {
   color: var(--ink-soft);
-  font-size: 14px;
-  line-height: 1.4;
-  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.35;
+  margin: 0 0 12px;
+}
+
+.modal-box .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 12px;
 }
 
 .modal-box .form-field {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .modal-box .form-field label {

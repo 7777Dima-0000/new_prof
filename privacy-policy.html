@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=32" />
+<link rel="stylesheet" href="styles.css?v=33" />
 </head>
 <body>
 <!-- 1. Шапка -->
@@ -242,21 +242,25 @@
     <p>Ответим за 15 минут и зафиксируем место в группе. Вся программа семинара уже на сайте — в разделе «Программа».</p>
 
     <form class="apply-form" id="modal-apply-form" data-bitrix-webhook="" novalidate>
-      <div class="form-field">
-        <label for="modal-name">Имя</label>
-        <input type="text" id="modal-name" name="name" placeholder="Как к вам обращаться" required />
+      <div class="form-row">
+        <div class="form-field">
+          <label for="modal-name">Имя</label>
+          <input type="text" id="modal-name" name="name" placeholder="Как к вам обращаться" required />
+        </div>
+        <div class="form-field">
+          <label for="modal-email">E-mail</label>
+          <input type="email" id="modal-email" name="email" placeholder="you@mail.ru" />
+        </div>
       </div>
-      <div class="form-field">
-        <label for="modal-email">E-mail</label>
-        <input type="email" id="modal-email" name="email" placeholder="you@mail.ru" />
-      </div>
-      <div class="form-field">
-        <label for="modal-phone">Телефон</label>
-        <input type="tel" id="modal-phone" name="phone" placeholder="+7 (___) ___-__-__" required />
-      </div>
-      <div class="form-field">
-        <label for="modal-city">Город</label>
-        <input type="text" id="modal-city" name="city" placeholder="Москва" />
+      <div class="form-row">
+        <div class="form-field">
+          <label for="modal-phone">Телефон</label>
+          <input type="tel" id="modal-phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+        </div>
+        <div class="form-field">
+          <label for="modal-city">Город</label>
+          <input type="text" id="modal-city" name="city" placeholder="Москва" />
+        </div>
       </div>
 
       <label class="form-consent">
