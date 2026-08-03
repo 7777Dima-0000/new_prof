@@ -13,7 +13,7 @@ SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
 CSS_VERSION = "33"
-JS_VERSION = "6"
+JS_VERSION = "7"
 
 SITE_URL = "https://mesoproff-pdrn.ru"
 OG_IMAGE = f"{SITE_URL}/3a7b48f8-df55-4b96-90d7-b7947bf9d245.jpg"

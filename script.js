@@ -1,5 +1,75 @@
 // ===== PDRN Practicum — скрипты =====
 
+// Отправка заявки в Битрикс24 (crm.lead.add через входящий вебхук)
+async function sendLeadToBitrix(webhook, { name, phone, email, city }) {
+  const fields = {
+    TITLE: "Заявка с сайта — семинар PDRN-бабочка",
+    NAME: name,
+    PHONE: [{ VALUE: phone, VALUE_TYPE: "WORK" }],
+    SOURCE_ID: "WEB",
+    SOURCE_DESCRIPTION: "Сайт — семинар «Лифтинг и регенерация. PDRN-бабочка»",
+  };
+
+  if (email) {
+    fields.EMAIL = [{ VALUE: email, VALUE_TYPE: "WORK" }];
+  }
+  if (city) {
+    fields.COMMENTS = `Город: ${city}`;
+  }
+
+  const response = await fetch(`${webhook}crm.lead.add.json`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ fields }),
+  });
+
+  const data = await response.json();
+  if (data.error) {
+    throw new Error(data.error_description || data.error);
+  }
+  return data;
+}
+
+function bindApplyForm(form, successEl) {
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    const consent = form.consent ? form.consent.checked : true;
+
+    if (!name || !phone || !consent) {
+      return;
+    }
+
+    const email = form.email ? form.email.value.trim() : "";
+    const city = form.city ? form.city.value.trim() : "";
+    const webhook = form.dataset.bitrixWebhook;
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    if (webhook) {
+      if (submitBtn) submitBtn.disabled = true;
+      try {
+        await sendLeadToBitrix(webhook, { name, phone, email, city });
+      } catch (err) {
+        console.error("Не удалось отправить заявку в Битрикс24:", err);
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    } else {
+      console.warn(
+        "Bitrix24 webhook не настроен (data-bitrix-webhook). Заявка не отправлена в CRM:",
+        { name, phone, email, city }
+      );
+    }
+
+    successEl.classList.add("visible");
+    form.reset();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Мобильное меню
   const burger = document.getElementById("burger");
@@ -41,57 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Форма заявки
-  const form = document.getElementById("apply-form");
-  const success = document.getElementById("form-success");
-
-  if (form) {
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const name = form.name.value.trim();
-      const phone = form.phone.value.trim();
-      const consent = form.consent ? form.consent.checked : true;
-
-      if (!name || !phone || !consent) {
-        return;
-      }
-
-      const payload = {
-        name,
-        phone,
-        email: form.email ? form.email.value.trim() : "",
-        city: form.city ? form.city.value.trim() : "",
-        source: "Сайт — семинар PDRN-бабочка",
-      };
-
-      // Заявки собираются в Битрикс24. Впишите сюда реальный URL
-      // входящего вебхука/CRM-формы Битрикс — тогда данные будут
-      // уходить туда автоматически. Пока webhook не задан, форма
-      // просто показывает пользователю сообщение об успехе.
-      const webhook = form.dataset.bitrixWebhook;
-
-      if (webhook) {
-        try {
-          await fetch(webhook, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-        } catch (err) {
-          console.error("Не удалось отправить заявку в Битрикс24:", err);
-        }
-      } else {
-        console.warn(
-          "Bitrix24 webhook не настроен (data-bitrix-webhook на #apply-form). " +
-            "Заявка не отправлена в CRM:",
-          payload
-        );
-      }
-
-      success.classList.add("visible");
-      form.reset();
-    });
-  }
+  bindApplyForm(
+    document.getElementById("apply-form"),
+    document.getElementById("form-success")
+  );
 });
 
 // Плавающие кнопки: наверх и чат
@@ -169,22 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  if (modalForm) {
-    modalForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const name = modalForm.name.value.trim();
-      const phone = modalForm.phone.value.trim();
-      const consent = modalForm.consent ? modalForm.consent.checked : true;
-
-      if (!name || !phone || !consent) {
-        return;
-      }
-
-      modalSuccess.classList.add("visible");
-      modalForm.reset();
-    });
-  }
+  bindApplyForm(modalForm, modalSuccess);
 });
 
 // Обратный отсчёт до семинара
