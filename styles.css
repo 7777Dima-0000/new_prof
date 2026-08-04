@@ -2644,29 +2644,21 @@ section {
 
 @media (max-width: 860px) {
   .prog-intro {
-    flex-direction: column;
-    align-items: stretch;
-    min-height: 0;
-  }
-
-  .prog-intro-photo {
-    position: relative;
-    aspect-ratio: 4 / 3;
+    min-height: 380px;
   }
 
   .prog-intro-scrim {
     background: linear-gradient(
       180deg,
-      rgba(253, 246, 251, 0) 55%,
-      rgba(253, 246, 251, 0.97) 100%
+      rgba(253, 246, 251, 0.95) 0%,
+      rgba(253, 246, 251, 0.95) 62%,
+      rgba(253, 246, 251, 0.5) 100%
     );
   }
 
   .prog-intro-text {
     max-width: none;
-    padding: 24px 26px 28px;
-    margin-top: -1px;
-    background: var(--mist-50);
+    padding: 28px 24px;
   }
 }
 
