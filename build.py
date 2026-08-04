@@ -12,7 +12,7 @@ ROOT = pathlib.Path(__file__).parent
 SECTIONS = ROOT / "sections"
 PARTIALS = ROOT / "partials"
 
-CSS_VERSION = "36"
+CSS_VERSION = "37"
 JS_VERSION = "7"
 
 SITE_URL = "https://mesoproff-pdrn.ru"
@@ -41,8 +41,8 @@ PAGES = [
     (
         "pricing.html",
         "Стоимость участия | НИИ ИКЭМ",
-        "Открытый прайс семинара по PDRN: офлайн 5 000 ₽ или оплата закупкой "
-        "препаратов, онлайн 2 900 ₽.",
+        "Открытый прайс семинара по PDRN: офлайн 5 000 ₽ или онлайн 2 900 ₽. "
+        "Мастер-класс от спикера и живое общение с коллегами.",
         "Тарифы",
         "Открытый прайс — без «уточните у менеджера»",
         ["pricing-short", "apply", "ask"],
@@ -105,7 +105,7 @@ def build_nav(current):
         links.append(f'      <a href="{href}"{active}>{label}</a>')
     links.append(
         '      <a href="index.html#apply" class="btn btn-primary nav-cta">'
-        "Записаться на курс</a>"
+        "Записаться на семинар</a>"
     )
     return "\n".join(links)
 
