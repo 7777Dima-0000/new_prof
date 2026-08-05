@@ -2106,7 +2106,7 @@ section {
 
   .hero-bg img {
     object-fit: cover;
-    object-position: center 25%;
+    object-position: 75% 20%;
   }
 }
 
@@ -2442,13 +2442,17 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 26px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .speaker-unit {
   display: flex;
   flex-direction: column;
   gap: 18px;
+}
+
+.speaker-unit .speaker-card {
+  flex: 1;
 }
 
 .speaker-photo,
